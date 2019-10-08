@@ -1,5 +1,5 @@
-<h2>Add new Post</h2>
-<%= form_for :post, url: posts_path do |field| %>
+<h2>Edit Post</h2>
+<%= form_for :post, url: post_path(@post), method: :patch do |field| %>
     <% if @post.errors.any? %>
         <% @post.errors.full_messages.each do |error| %>
             <div class='alert alert-danger'>

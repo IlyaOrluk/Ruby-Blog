@@ -1,4 +1,21 @@
-<a href='/posts/new'>New Post</a>
-<a href='/about'>ABOUT</a>
-
-<h3>HOMEPAGE</h3>
+<% if user_signed_in? %>
+<span>Welcome to site <%= current_user.name %> your email: <%= current_user.email %></span>
+<h3>Article list</h3>
+    <% @post.each do |item| %>
+        <div class='articles-item'>
+            <h3><%= item.title %></h3>
+            <hr>
+            <p><%= item.content %></p>
+            <%= link_to "More", post_path(item), :class => 'btn btn-primary' %>
+                <div class='alert alert-light'>
+                <% item.comments.each do |comment| %>
+                    <p><strong><%= comment.username %>: </strong><%= comment.comment %></p>
+                    <hr>
+                <% end %>
+                </div>
+        </div>
+    <% end %>
+<% else %>
+<h3>Welcome to Ruby-Blog</h3>
+<span><%= link_to 'Sign in', new_user_session_path %> to see posts...</span>
+<% end %>

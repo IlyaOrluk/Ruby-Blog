@@ -4,12 +4,32 @@
     <title>RailsApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= javascript_include_tag "application" %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+ 
   </head>
 
   <body>
-    <%= yield %>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal">Ruby-Blog</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-dark" href="/">HOME</a>
+    <a class="p-2 text-dark" href="/posts/new">ADD POST</a>
+    <a class="p-2 text-dark" href="/about">ABOUT</a>
+    <% if user_signed_in? %>
+    <span>Hello, <%= current_user.name %></span>
+    <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+<% else %>
+    <%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %>
+<% end %>
+  </nav>
+</div>
+<div class='container'>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+  <%= yield %>
+</div>
+
   </body>
 </html>
