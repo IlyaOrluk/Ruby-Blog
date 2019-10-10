@@ -8,6 +8,7 @@
     flex-direction: column;
 }
 .article-item{
+    background: #eeeeee;
     margin: 0 auto;
     border: .5px solid #999;
     border-radius: 5px;
@@ -25,6 +26,8 @@
     }
 }
 .show-article {
+    position: relative;
+    background: #fff;
     border: .5px solid #999;
     border-radius: 5px;
     padding: 10px;
@@ -40,9 +43,25 @@
         width: 100%;
         object-fit: cover;
     }
+    .fa-pencil-alt {
+        position: absolute;
+        top: 5%;
+        right: 6%;
+    }
+    .fa-times {
+        position: absolute;
+        top: 5%;
+        right: 3%;
+    }
+    &-footer{
+        margin: 2vh;
+        display: flex;
+        justify-content: flex-end;
+    }
 }
 
 .avatar {
     width: 50px;
     height: 50px;
 }
+

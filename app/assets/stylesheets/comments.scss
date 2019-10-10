@@ -2,9 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .comment-wrap {
+    position: relative;
     margin: 2vh;
     display: flex;
     align-items: flex-start;
+    background: #eeeeeead;
+    padding: 3vh;
     .comment {
         display: flex;
         align-items: flex-start;
@@ -17,6 +20,11 @@
             font-size: 10px;
             color: #333;
         }
+    }
+    .fa-times{
+        position: absolute;
+        top: 15px;
+        right: 20px;
     }
 }
 .comment-avatar {

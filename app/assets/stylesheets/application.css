@@ -13,8 +13,34 @@
  *= require_tree .
  *= require_self
  */
+body {
+    background:
+    -webkit-linear-gradient(315deg, hsla(218.9, 37.67%, 81.71%, 1) 0%, hsla(218.9, 37.67%, 81.71%, 0) 70%),
+    -webkit-linear-gradient(65deg, hsla(312, 55.53%, 81.63%, 1) 10%, hsla(312, 55.53%, 81.63%, 0) 80%),
+    -webkit-linear-gradient(135deg, hsla(0, 13.06%, 46.98%, 1) 15%, hsla(0, 13.06%, 46.98%, 0) 80%),
+    -webkit-linear-gradient(205deg, hsla(113.16, 0%, 42.64%, 1) 100%, hsla(113.16, 0%, 42.64%, 0) 70%);
+  background:
+    linear-gradient(135deg, hsla(218.9, 37.67%, 81.71%, 1) 0%, hsla(218.9, 37.67%, 81.71%, 0) 70%),
+    linear-gradient(25deg, hsla(312, 55.53%, 81.63%, 1) 10%, hsla(312, 55.53%, 81.63%, 0) 80%),
+    linear-gradient(315deg, hsla(0, 13.06%, 46.98%, 1) 15%, hsla(0, 13.06%, 46.98%, 0) 80%),
+    linear-gradient(245deg, hsla(113.16, 0%, 42.64%, 1) 100%, hsla(113.16, 0%, 42.64%, 0) 70%);
+}
 a {
     text-decoration: none;
     cursor: pointer;
     color: black;
+}   
+.header {
+    background: #eeeeeee7;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+.fa-gem {
+    margin: 1.3vh;
+    font-size: 23px;
+}
+.container{
+    margin-top: 95px;
 }

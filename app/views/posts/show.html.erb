@@ -1,22 +1,29 @@
 <div class='show-article'>
     <h1><%= @post.title %></h1>
+    <%= link_to '', edit_post_path(@post), :class => 'fas fa-pencil-alt' %>
+    <%= link_to '', post_path(@post), method: :delete, data: {confirm: 'You are sure?'}, :class => 'fas fa-times' %>
+
     <% if @post.image.attached? %>
         <img class='img-fluid img-thumbnail' src='<%=(url_for(@post.image)) %>'>
     <% end %>
-    <span><%= @post.content %></span>
+    
+    <span><%= @post.content %></span></br>
+    <div class='show-article-footer'>
+    <span class='show-article-data'><%= @post.created_at.strftime("%d %b. %Y  %H:%M") %></span>
+    </div>
 </div>
 <hr>
-<%= link_to 'Edit', edit_post_path(@post), :class => 'btn btn-warning' %>
-<%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: 'You are sure?'}, :class => 'btn btn-danger' %>
-
 
 <% @post.comments.each do |item| %>
  <div class='comment-wrap'>
+    <% if item.user.id === current_user.id%>
+     <%= link_to '', post_comment_url(item), method: :delete, data: {confirm: 'You are sure?'}, :class => 'fas fa-times' %>
+    <% end %>
                         <img class='comment-avatar' src='<%=(url_for(item.user.avatar)) %>'>
                         <div class='comment'>
                             <span class='comment-username'><%= item.user.first_name %> <%= item.user.last_name %>:</span>
                             <p class='comment-body'><%= item.comment %></p>
-                            <span class='comment-published-data'><%= item.created_at %></span>
+                            <span class='comment-published-data'><%= item.created_at.strftime("%d %b. %Y  %H:%M") %></span>
                         </div>
                     </div>
                     <hr>
