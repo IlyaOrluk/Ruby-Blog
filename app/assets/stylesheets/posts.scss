@@ -1,9 +1,48 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.articles-item{
+.article-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.article-item{
+    margin: 0 auto;
     border: .5px solid #999;
     border-radius: 5px;
     padding: 10px;
     margin: 3vh;
+    width: 80%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .3),
+            -23px 0 20px -23px rgba(0, 0, 0, .6),
+            23px 0 20px -23px rgba(0, 0, 0, .6),
+            inset 0 0 40px rgba(0, 0, 0, .1);
+    .article-image {
+        height: 40vh;
+        object-fit: cover;
+        width: 100%;
+    }
+}
+.show-article {
+    border: .5px solid #999;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 3vh auto;
+    width: 100%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .3),
+            -23px 0 20px -23px rgba(0, 0, 0, .6),
+            23px 0 20px -23px rgba(0, 0, 0, .6),
+            inset 0 0 40px rgba(0, 0, 0, .1);
+    img {
+        margin: 3vh auto;
+        height: 50vh;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
 }

@@ -1,20 +1,31 @@
 <% if user_signed_in? %>
-<span>Welcome to site <%= current_user.name %> your email: <%= current_user.email %></span>
+<span>Welcome to site <%= current_user.first_name %> <%= current_user.last_name %> your email: <%= current_user.email %></span>
 <h3>Article list</h3>
+<button class='btn btn-dark'><%= link_to 'Add post', new_post_path %></button>
+<div class='article-items'>
     <% @post.each do |item| %>
-        <div class='articles-item'>
+        <div class='article-item'>
             <h3><%= item.title %></h3>
+                <% if item.image.attached? %>
+                    <img class='article-image img-thumbnail' src='<%=(url_for(item.image)) %>'>
+                <% end %>
             <hr>
             <p><%= item.content %></p>
             <%= link_to "More", post_path(item), :class => 'btn btn-primary' %>
-                <div class='alert alert-light'>
                 <% item.comments.each do |comment| %>
-                    <p><strong><%= comment.username %>: </strong><%= comment.comment %></p>
+                    <div class='comment-wrap'>
+                        <img class='comment-avatar' src='<%=(url_for(comment.user.avatar)) %>'>
+                        <div class='comment'>
+                            <span class='comment-username'><%= comment.user.first_name %> <%= comment.user.last_name %>:</span>
+                            <p class='comment-body'><%= comment.comment %></p>
+                            <span class='comment-published-data'><%= comment.created_at %></span>
+                        </div>
+                    </div>
                     <hr>
                 <% end %>
-                </div>
         </div>
     <% end %>
+</div>
 <% else %>
 <h3>Welcome to Ruby-Blog</h3>
 <span><%= link_to 'Sign in', new_user_session_path %> to see posts...</span>

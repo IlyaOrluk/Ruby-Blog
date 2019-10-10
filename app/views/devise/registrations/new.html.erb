@@ -9,9 +9,17 @@
   </div>
   
 <div>
-     <%= f.label :name %><br />
-     <%= f.text_field :name, autofocus: true %>
+     <%= f.label :first_name %><br />
+     <%= f.text_field :first_name, autofocus: true %>
 </div>
+<div>
+     <%= f.label :last_name %><br />
+     <%= f.text_field :last_name, autofocus: true %>
+</div>
+<span>
+    Image
+    <%= f.file_field(:avatar, { :class => 'form-control' }) %>
+</span>
 
   <div class="field">
     <%= f.label :password %>

@@ -1,0 +1,14 @@
+<h2>Your account:</h2>
+<div class='profile'>
+    <% if current_user.avatar.attached? %>
+        <img class='profile-avatar' src='<%=(url_for(current_user.avatar)) %>'></br>
+    <% end %>
+    <div class='profile-info'>
+        <span>First Name:</span>
+        <h3><%= current_user.first_name %></h3>
+        <span>Last Name:</span>
+        <h3><%= current_user.last_name %></h3>
+        <span>Email:</span>
+        <h3><%= current_user.email %></h3>
+    </div>
+</div>
