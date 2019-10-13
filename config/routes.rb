@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :room_messages
+  resources :rooms
 root 'posts#index'
 
 get 'about' => 'pages#about'
@@ -15,6 +17,7 @@ end
 # resources :comments do 
 #     resources :user
 # end
-
-
+root controller: :rooms, action: :index
+resources :room_messages
+resources :rooms
 end

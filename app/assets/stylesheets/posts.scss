@@ -65,3 +65,12 @@
     height: 50px;
 }
 
+.room-nav-link {
+    border: 1px solid #999;
+    background: seashell;
+    border-radius: 5px;
+  
+    & + .room-nav-link {
+      border-top: 0 none;
+    }
+  }

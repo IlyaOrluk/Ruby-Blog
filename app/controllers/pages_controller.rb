@@ -4,6 +4,6 @@ class PagesController < ApplicationController
         @heading = 'Page about us!'
     end
     def me
-        
+        @rooms = Room.all
     end
 end
